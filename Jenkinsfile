@@ -4,15 +4,15 @@ pipeline {
         stage('Download-Code-GIT') {
             steps {
                 echo "Download code from git"
-                git branch: 'main', url: 'https://github.com/devopstechlab/maven-jenkins7.git'
+                git branch: 'main', url: 'https://github.com/Shrujal82/maven-jenkins7.git'
             }
         }
         stage('Build') {
             steps {
-        sh '''docker build -t devopstechlab/tomcat:v${BUILD_NUMBER} .
-            docker tag devopstechlab/tomcat:v${BUILD_NUMBER} devopstechlab/tomcat:latest 
-            docker push devopstechlab/tomcat:v${BUILD_NUMBER}
-            docker push devopstechlab/tomcat:latest '''
+        sh '''docker build -t shrujal/tomcat:v${BUILD_NUMBER} .
+            docker tag shrujal/tomcat:v${BUILD_NUMBER} devopstechlab/tomcat:latest 
+            docker push shrujal/tomcat:v${BUILD_NUMBER}
+            docker push shrujal/tomcat:latest '''
             }
         }
     }
